@@ -48,8 +48,8 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            cd ./venv
-            python manage.py test
+            cd ./my-first-blog/law
+            python3 manage.py test
 
       - store_artifacts:
           path: test-reports
