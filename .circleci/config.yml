@@ -48,6 +48,8 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
+            cd /
+            cd . /home/circleci/law
             python3 manage.py test
 
       - store_artifacts:
