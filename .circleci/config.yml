@@ -48,7 +48,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            echo print("hello world")
+            echo "hello world"
 
       - store_artifacts:
           path: test-reports
