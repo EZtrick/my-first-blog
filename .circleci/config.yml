@@ -30,13 +30,13 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            python3 -m venv venv
-            . venv/bin/activate
+            python3 -m venv law
+            . law/bin/activate
             pip install -r requirements.txt
 
       - save_cache:
           paths:
-            - ./venv
+            - ./law
           key: v1-dependencies-{{ checksum "requirements.txt" }}
 
       # run tests!
@@ -47,7 +47,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            . venv/bin/activate
+            . law/bin/activate
             python manage.py test
 
       - store_artifacts:
