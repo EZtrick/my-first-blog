@@ -15,7 +15,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/python:3.6.1
 
-    working_directory: ~/my-first-blog
+    working_directory: ~/my-first-blog/law
 
     steps:
       - checkout
@@ -30,13 +30,12 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            python3 -m venv law
-            . law/bin/activate
+            . /bin/activate
             pip install -r requirements.txt
 
       - save_cache:
           paths:
-            - ./my-first-blog/law
+            - ./law
           key: v1-dependencies-{{ checksum "requirements.txt" }}
 
       # run tests!
@@ -47,7 +46,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            . law/bin/activate
+            . /bin/activate
             python manage.py test
 
       - store_artifacts:
