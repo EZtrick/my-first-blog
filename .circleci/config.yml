@@ -37,7 +37,7 @@ jobs:
 
       - save_cache:
           paths:
-            - ./venv
+            - ./law/venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
 
       # run tests!
@@ -48,7 +48,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            . venv/bin/activate
+            . law/venv/bin/activate
             python manage.py test
 
       - store_artifacts:
